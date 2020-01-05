@@ -1,0 +1,29 @@
+{% extends "beyondveggie/base.html" %}
+<head>
+    <title>Plant Table</title>
+</head>
+{% block leftcolumn %}
+It is {% now "jS F Y" %}
+{% endblock %}
+{% block maincolumn %}
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Plant</th>
+                    <th scope="col">When to plant</th>
+                    <th scope="col">Time to harvest</th>
+                    <th scope="col">Harvest on</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for plant in plant_data_list %}
+                <tr>
+                    <td>{{ plant.plant_name }}</td>
+                    <td>{{ plant.planting_date }}</td>
+                    <td>{{ plant.days_till_harvest}}</td>
+                    <td>{{ plant.harvest_date }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}
